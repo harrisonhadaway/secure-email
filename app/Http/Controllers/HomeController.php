@@ -25,7 +25,8 @@ class HomeController extends Controller
     public function index()
     {
         $id = \Auth::user()->id;
-        $messages = \App\Message::where('recipient_id', '=', 'id');
+        $messages = \App\Message::where('recipient_id', '=', $id)->get();
         return view('home', compact('messages'));
     }
 }
+// \App\User::where('email', $request->email)->first()->id;

@@ -78,6 +78,9 @@ class MessageController extends Controller
     public function show($id)
     {
         //$sender_id = $sender_id->sender();
+
+        // \App\User::where('email', $request->email)->first()->id;
+        
         $message = \App\Message::find($id);
         return view('message', compact('message'));
     }

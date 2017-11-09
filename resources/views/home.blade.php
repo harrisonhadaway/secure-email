@@ -30,13 +30,7 @@
                         <th>Date</th>
                     </tr>
                     @foreach ($messages as $message)
-
-                            <!-- @if ($message->is_read == false)
-                                    <style type="text/css"> .mark { background-color: yellow; color: black; } </style>
-                                    @endif  -->
-                            <tr>
-
-                                
+                            <tr>  
                                 <td>
                                     @if ($message->is_starred) 
                                         <strong>&#9734;</strong>
