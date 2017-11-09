@@ -21,17 +21,39 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $message = 
-        return view('new');
+        
+        $message = new \App\Message;
+        $message->sender_id = \Auth::user()->id;
+        $message->recipient_id = \App\User::where('email', $request->email)->first()->id;
+        $message->subject = $request->subject;
+        $message->body = $request->body;
+        $message->save();
+        return redirect('/home');
 
 
-        $message -> sender_id
-        $message -> recipient_id
-        $message -> subject
-        $message -> body
-        $message -> is_read
+
+      //   DB::table('messages')->insert([
+      //   'sender_id' => ,
+      //   'recipient_id' => input email,
+      //   'subject' => 'input',
+      //   'body' => 'input',
+      //   'is_read' => false,
+      //   'is_starred' =>false,
+      //   'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+      //   'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+      // ]);
+
+      //    return redirect('/home');
+
+
+        // $message -> sender_id
+        // $message -> recipient_id
+        // $message -> subject
+        // $message -> body
+        // $message -> is_read
+        // $message -> is_starred 
 
 
     }
