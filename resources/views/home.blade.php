@@ -12,7 +12,8 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Inbox</div>
+                <button style="margin-top: 10px; margin-left: 10px;"><a href="{{ url('/new')}}">Compose</a></button>
 
                 <div class="panel-body">
                     @if (session('status'))

@@ -23,4 +23,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/msg/{id}', 'MessageController@show');
 
+Route::get('/new', 'MessageController@create');
+
+// Route::get('new', 
+//   ['as' => 'message', 'uses' => 'MessageController@create']);
+// Route::post('contact', 
+//   ['as' => 'message_store', 'uses' => 'MessageController@store']);
 

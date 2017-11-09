@@ -13,7 +13,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -23,7 +23,17 @@ class MessageController extends Controller
      */
     public function create()
     {
-        //
+        $message = 
+        return view('new');
+
+
+        $message -> sender_id
+        $message -> recipient_id
+        $message -> subject
+        $message -> body
+        $message -> is_read
+
+
     }
 
     /**
