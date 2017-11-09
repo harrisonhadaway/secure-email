@@ -29,8 +29,13 @@
                         <th>Date</th>
                     </tr>
                     @foreach ($messages as $message)
-                             
+
+                            <!-- @if ($message->is_read == false)
+                                    <style type="text/css"> .mark { background-color: yellow; color: black; } </style>
+                                    @endif  -->
                             <tr>
+
+                                
                                 <td>
                                     @if ($message->is_starred) 
                                         <strong>&#9734;</strong>
@@ -38,11 +43,13 @@
                                 </td>
                                 <td><a href="{{ url('/msg') }}/{{$message->id}}">{{ $message->sender->name }}</a></td>
                                 <td><a href="{{ url('/msg') }}/{{$message->id}}">{{ $message->subject }}</a></td>
-                                <td>{{ $message->created_at }}</td>
-                                
+                               <!--  <td>{{ $message->created_at }}</td> -->
+                                <td>{{ date('M d, Y', strtotime($message->created_at)) }}</td>
                             </tr>
                         
                     @endforeach
+
+                    {{ Auth::user()->name }}
 
                 </div>
             </div>

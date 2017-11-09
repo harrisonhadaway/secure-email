@@ -16,6 +16,7 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+
     /**
      * Show the application dashboard.
      *
@@ -23,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $messages = \App\Message::all();
+        $id = \Auth::user()->id;
+        $messages = \App\Message::where('recipient_id', '=', 'id');
         return view('home', compact('messages'));
     }
 }
